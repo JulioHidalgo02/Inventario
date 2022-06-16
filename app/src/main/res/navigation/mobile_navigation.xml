@@ -3,13 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_inventario">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.inventario.ui.home.HomeFragment"
-        android:label="@string/menu_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/nav_inventario"
+        android:name="com.inventario.ui.inventario.InventarioFragment"
+        android:label="@string/menu_inventario"
+        tools:layout="@layout/fragment_inventario" >
+        <action
+            android:id="@+id/action_nav_inventario_to_addInventarioFragment"
+            app:destination="@id/addInventarioFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_gallery"
@@ -22,4 +26,13 @@
         android:name="com.inventario.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/addInventarioFragment"
+        android:name="com.inventario.ui.inventario.AddInventarioFragment"
+        android:label="fragment_add_inventario"
+        tools:layout="@layout/fragment_add_inventario" >
+        <action
+            android:id="@+id/action_addInventarioFragment_to_nav_inventario"
+            app:destination="@id/nav_inventario" />
+    </fragment>
 </navigation>
